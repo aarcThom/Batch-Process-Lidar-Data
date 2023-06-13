@@ -1,0 +1,54 @@
+﻿<Window x:Class="AARC001_LIDAR_ROOF_EXTRACTOR.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LidarRoofExtraction"
+        mc:Ignorable="d"
+        Title="AARC ROOF EXTRACTION - 1.02" Height="400" Width="400"
+        ResizeMode="NoResize">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="85*"/>
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="8*"/>
+            <ColumnDefinition Width="96*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="183*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="18*"/>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="18*"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="inputButton" Content="Input Folder" Margin="10,146,0,36" Grid.Row="1" Click="inputButton_Click" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <Button x:Name="outputButton" Content="Output Folder" Grid.Column="3" Margin="0,145,8,36" Grid.Row="1" Click="outputButton_Click" Grid.RowSpan="2"/>
+        <Button x:Name="runButton" Content="RUN!" Grid.Row="4" Margin="10,27,0,28" Grid.RowSpan="3" Click="runButton_Click" Grid.ColumnSpan="2"/>
+        <Rectangle Margin="10,146,0,23" Grid.Row="1" Stroke="Black" Grid.RowSpan="4" Grid.ColumnSpan="2"/>
+        <Rectangle Margin="0
+                   ,145,8,23" Grid.Row="1" Stroke="Black" Grid.RowSpan="4" Grid.Column="3"/>
+        <ProgressBar x:Name="progBar" Grid.Column="3" Grid.Row="5" Margin="2,10,8,28" Maximum="99" Foreground="#FF06B025" Grid.RowSpan="2"/>
+        <Label Content="Overall Progress" Grid.Column="3" Margin="2,23,45,1" Grid.Row="4" Grid.RowSpan="2"/>
+        <TextBlock x:Name="inputBox" Margin="15,6,10,30" Grid.Row="2" TextWrapping="Wrap" Grid.RowSpan="3" Grid.ColumnSpan="2"><Run Language="en-ca" Text="No input folder selected."/></TextBlock>
+        <TextBlock x:Name="outputBox" Margin="10,6,16,30" Grid.Row="2" TextWrapping="Wrap" Grid.RowSpan="3" Grid.Column="3"><Run Text="No "/><Run Language="en-ca" Text="output"/><Run Text=" folder selected."/></TextBlock>
+        <TextBlock x:Name="feedback" HorizontalAlignment="Left" Height="18" Margin="10,14,0,0" Grid.Row="6" TextWrapping="Wrap" VerticalAlignment="Top" Width="380" Grid.ColumnSpan="4"><Run Language="en-ca" Text="Choose your input and output directories"/></TextBlock>
+        <Label Content="Octree cell max. dimension:" Margin="10,81,0,65" Grid.Row="1" Grid.ColumnSpan="2"/>
+        <Label Content="Minimum points per segment:" Margin="0,81,10,65" Grid.Row="1" Grid.Column="3"/>
+        <TextBox x:Name="octreeCell" HorizontalAlignment="Left" Height="26" Margin="10,106,0,0" Grid.Row="1" Text="1" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" TextChanged="OctreeCell_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="minSegPts" Height="26" Margin="0,106,8,0" Grid.Row="1" Text="500" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TextChanged="MinSegPts_TextChanged"/>
+        <Rectangle Height="51" Margin="10,81,0,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Rectangle Height="51" Margin="0,81,8,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Grid.Column="3"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="0,27,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" FontFamily="Univers LT Pro 55" FontSize="9" Grid.Column="3" Grid.RowSpan="2"><Run Text="Version 1.0"/><Run Language="en-ca" Text="2"/></TextBlock>
+        <Label Content="X/Y dimensions per output file:" Margin="0,16,10,129" Grid.Row="1" Grid.Column="3"/>
+        <TextBox x:Name="xyDim" Height="26" Margin="0,41,8,0" Grid.Row="1" Text="100" TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="3" TextChanged="XyDim_TextChanged"/>
+        <Rectangle Height="51" Margin="0,16,8,0" Grid.Row="1" Stroke="Black" VerticalAlignment="Top" Grid.Column="3"/>
+        <Button x:Name="ccPath" Content="Cloud Compare v2 path" Margin="10,16,0,0" Grid.Row="1" Click="ccPath_Click" Height="25" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Rectangle Margin="10,16,0,0" Stroke="Black" Grid.Row="1" Height="51" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="ccPathText" Margin="15,41,7,115" Grid.Row="1" TextWrapping="Wrap" Grid.ColumnSpan="2"><Run Language="en-ca" Text="..."/></TextBlock>
+        <TextBlock HorizontalAlignment="Left" Height="27" Margin="15,17,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" FontFamily="Univers LT Pro 55" FontSize="22" Grid.ColumnSpan="2"><Run Text="AARC TOOL"/><Run Language="en-ca" Text=" 001"/></TextBlock>
+
+    </Grid>
+</Window>
